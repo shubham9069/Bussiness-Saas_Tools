@@ -1,0 +1,146 @@
+.subtitle-input{
+    display: block;
+    width: fit-content;
+    border:none;
+    text-align: center;
+    margin: 1rem 0;
+   
+    
+}
+.subtitle-input:focus-visible{
+    outline: none;
+  
+    border-bottom: 1.5px solid #bdbdbd !important ;
+
+}
+.invoice-number-box{
+   
+}
+.invoice-div{
+    display: flex;
+    grid-gap: 30px;
+    margin: 1rem 1rem;
+}
+.invoice-div>span{
+    display: block;
+    width: 200px;
+    white-space: pre-wrap;
+    color:#4e5560;
+    font-weight:500 ;
+   
+    
+    
+}
+.invoice-div input{
+   width: 200px;
+   height: fit-content;
+   border:0;
+   border-bottom: 1.5px dotted #bdbdbd;
+    
+}
+.invoice-div input::placeholder{
+   color:grey;
+    
+}
+.billed>div{
+    padding: 1.5rem 3rem ;
+    background-color: #f6f9ff;
+    max-width: 500px;
+}
+
+.billed-to>h4,.billed-by>h4{
+    display:inline-block;
+    margin:0 1rem 0 0
+}
+.billed-to select,.billed-by select{
+    padding:0.8rem;
+    width:100%;
+    margin:0.5rem 0;
+    border:1px solid rgb(145, 167, 204);
+    border-radius:4px;
+    display: block;
+    background-color: transparent;
+}
+.billed-to select:focus-visible,.billed-by select:focus-visible{
+   outline: none;
+}
+.billed-by>div,.billed-to>div{
+    width: 100%;
+    height: 300px;
+    border:1px solid rgb(145, 167, 204);
+    border-radius:4px;
+}
+.add-billing{
+    background-color: white;
+    padding: 1.5rem;
+    min-width: 300px
+}
+.input-table{
+    margin: 3rem 0  ;
+    width: 100%;
+    background-color: #f6f9ff;
+}
+.input-table th{
+   padding: 1rem 1rem ;
+   background-color: #4f15d0;
+   color:#ffffffd1;
+   border-color: transparent !important;
+   font-weight: 500;
+}
+.input-table td{
+    min-width: 100px;
+   padding: 1.5rem 1rem ;
+ 
+}
+
+.input-table input {
+
+border:0;
+
+color:rgb(53, 49, 49);
+font-weight: 500;
+background-color: transparent;
+
+}
+ input:disabled {
+
+color:grey
+
+
+}
+.input-table input::placeholder {
+color:#4e5560;
+font-weight: 500;
+
+
+}
+input:focus{
+    
+    outline: none;
+}
+
+.price-details{
+padding-bottom: 10px;
+
+}
+.price-details p{
+font-size: 1.1rem;
+font-weight: 500;
+color: #252728;
+
+}
+.price-details span{
+
+font-weight: 800;
+
+}
+.add-image{
+    cursor:pointer;
+    padding: 7px 10px;
+    border:1.5px dotted #cac9c9c9;
+    background:#f6f9ff;
+    border-radius:6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    height: min-content;
+}

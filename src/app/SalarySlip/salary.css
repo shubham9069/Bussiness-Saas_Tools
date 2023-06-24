@@ -1,0 +1,32 @@
+.salaryCalculate{
+margin: 3rem 0 ;
+grid-gap:30px;
+display: flex ;
+justify-content: center;
+align-items: stretch;
+
+}
+.salaryCalculate>div{
+    width: 500px;
+    height:inherit;
+}
+.salaryCalculate>div>div{
+padding: 2rem ;
+background-color:#f6f9ff;
+border-radius: 0px 0px 12px  12px  ;
+height: 100%;
+}
+
+.salary-details>p{
+font-weight: 500;
+}
+.salary-details>input{
+font-weight: 700;
+border:none;
+
+width: 80px;
+/* max-width: max-content; */
+margin: 0.5rem 0;
+background-color: transparent;
+text-transform: uppercase;
+}
