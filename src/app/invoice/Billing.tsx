@@ -64,7 +64,7 @@ const Billing = ({print,modal,toggle,addressForm,billingAddress,setAddressForm,s
         </div>
         <div className='d-flex' style={{gridGap:30,margin:"1rem 0"}}>
            <span style={{color:"#6e757feb",fontWeight:600,minWidth:120}}>Address </span> 
-           <span style={{fontWeight:600}}>{addressForm?.home},{addressForm?.streat},{addressForm?.city}</span> 
+           <span style={{fontWeight:600,width:'100%',    wordBreak: 'break-word'}}>{addressForm?.home},{addressForm?.streat},{addressForm?.city}</span> 
         </div>
         <div className='d-flex' style={{gridGap:30,margin:"1rem 0"}}>
            <span style={{color:"#6e757feb",fontWeight:600,minWidth:120}}>GSTIN</span> 
@@ -114,7 +114,7 @@ const Billing = ({print,modal,toggle,addressForm,billingAddress,setAddressForm,s
         </div>
         <div className='d-flex' style={{gridGap:30,margin:"1rem 0"}}>
            <span style={{color:"#6e757feb",fontWeight:600,minWidth:120}}>Address </span> 
-           <span style={{fontWeight:600}}>{billingAddress?.home},{billingAddress?.streat},{billingAddress?.city}</span> 
+           <span style={{fontWeight:600,width:'100%',    wordBreak: 'break-word'}}>{billingAddress?.home},{billingAddress?.streat},{billingAddress?.city}</span> 
         </div>
         <div className='d-flex' style={{gridGap:30,margin:"1rem 0"}}>
            <span style={{color:"#6e757feb",fontWeight:600,minWidth:120}}>GSTIN</span> 

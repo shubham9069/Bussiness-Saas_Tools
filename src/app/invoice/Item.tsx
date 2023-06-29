@@ -26,9 +26,13 @@ interface itemprop{
   setnoofinput:React.Dispatch<React.SetStateAction<number>>;
   item:item[];
   setitem:React.Dispatch<React.SetStateAction<item[]>>;
-  print:boolean
+  print:boolean;
+  note:any;
+  setnote:React.Dispatch<React.SetStateAction<any>>
+  notetoggle:boolean
+  setnotetoggle:React.Dispatch<React.SetStateAction<boolean>>
 }
-const Item = ({print,Attachment,setAttachment,signature,setSignature,noofinput,setnoofinput,item,setitem}:itemprop) => {
+const Item = ({notetoggle,note,setnotetoggle,setnote,print,Attachment,setAttachment,signature,setSignature,noofinput,setnoofinput,item,setitem}:itemprop) => {
 
 
 
@@ -118,7 +122,7 @@ return obj
     <th>CGST</th>
     <th>SGST</th>
     <th>Total</th>
-    <th></th>
+    {!print && (<th></th>)}
   </tr>
   </thead>
   <tbody>
@@ -126,15 +130,15 @@ return obj
 
 return <tr key={a?.id}>
  
-    <td><input style={{width:200,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} placeholder='item name (required)' value={a?.name} name="name" onChange={(e)=>handlechange(e,a?.id)}></input></td>
+    <td><input style={{width:150,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} placeholder='item name (required)' value={a?.name} name="name" onChange={(e)=>handlechange(e,a?.id)}></input></td>
     <td><input style={{width:50,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number' value={a?.gst} name="gst"  onChange={(e)=>handlechange(e,a?.id)}></input> <span>%</span></td>
     <td><span ></span><input style={{width:50,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'   value={a?.quantity} name="quantity"  onChange={(e)=>handlechange(e,a?.id)}></input></td>
     <td><span>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'  value={a?.rate} name="rate"  onChange={(e)=>handlechange(e,a?.id)}></input ></td>
-    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number' disabled  value={a?.amount} name="amount"  onChange={(e)=>handlechange(e,a?.id)}></input></td>
-    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'   disabled value={a?.cgst} name="cgst" ></input></td>
-    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'  disabled  value={a?.sgst} name="sgst"  ></input></td>
-    <td><span style={{color:"grey"}}>₹</span><input  style={{width:100,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}}type='number'  disabled value={a?.total} name="total" ></input></td>
-    <td>{!print && (<i className="bi bi-x-circle-fill" style={{fontSize:18,color:"#F1416C"}} onClick={()=>setitem(item?.filter(elem=>elem?.id!=a?.id))}></i>)}</td>
+    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number' disabled  value={a?.amount.toFixed(2)} name="amount"  onChange={(e)=>handlechange(e,a?.id)}></input></td>
+    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'   disabled value={a?.cgst.toFixed(2)} name="cgst" ></input></td>
+    <td><span style={{color:"grey"}}>₹</span><input style={{width:70,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}} type='number'  disabled  value={a?.sgst.toFixed(2)} name="sgst"  ></input></td>
+    <td><span style={{color:"grey"}}>₹</span><input  style={{width:100,borderBottom:!print ? '1.5px solid #bdbdbd':'none'}}type='number'  disabled value={a?.total.toFixed(2)} name="total" ></input></td>
+    {!print && (<td> <i className="bi bi-x-circle-fill" style={{fontSize:18,color:"#F1416C"}} onClick={()=>setitem(item?.filter(elem=>elem?.id!=a?.id))}></i></td>)}
    
   
   {/* <tr>
@@ -158,8 +162,12 @@ return <tr key={a?.id}>
     
  {!print && (<button style={{ width:'100%',padding:'0.85rem ',background:"#f6f9ff",border:'2px dotted #cac9c9c9',fontWeight:500,borderRadius:6}} onClick={()=>setnoofinput(noofinput+1)}>
  <i className="bi bi-plus-square" style={{color:"#4f15d0",fontSize:'1.1rem',marginRight:10}} ></i>Add New Line </button> )}  
-    
- <div className='' style={{margin:'2rem 0 2rem auto',width:300}} >
+    <div className='d-flex justify-content-between' style={{margin:'2rem 0'}}>
+<div style={{width:300}}>
+  {notetoggle && (<textarea style={{height:'100%',width:'100%',padding:'1rem ',border:!print ? "1.5px solid black ":"none"}} value={note} placeholder='write important note' onChange={(e)=>setnote(e.target.value)}></textarea>)}
+</div>
+   
+ <div className='' style={{width:300}} >
 
 <div className="price-details between-div ">
   <p>Amount</p>
@@ -188,10 +196,11 @@ return <tr key={a?.id}>
       <span style={{fontSize:20}}>₹{calculate?.total}</span>
   </div>
   </div> 
+  </div>
   {!print ?   
   <div className='d-flex ' style={{gridGap:20}}>
-  <div className="add-image">
-        <i className="bi bi-card-list" style={{color:"#4f15d0",fontSize:'1.2rem',marginRight:10}}></i>
+  <div className="add-image" onClick={(e)=>setnotetoggle(!notetoggle)}>
+        <i className="bi bi-card-list" style={{color:"#4f15d0",fontSize:'1.2rem',marginRight:10}} ></i>
           Add note  
         </div>
        
