@@ -53,13 +53,13 @@ export default function Home() {
         </div>
       </div>
 
-      <p className="final-words">We understand the importance of efficiency and professionalism in today's fast-paced business world. That's why we have developed these tools to save you time and enhance your productivity. Enjoy the convenience and simplicity of managing essential business tasks on a single platform.</p>
+      <p className="final-words">{`We understand the importance of efficiency and professionalism in today's fast-paced business world. That's why we have developed these tools to save you time and enhance your productivity. Enjoy the convenience and simplicity of managing essential business tasks on a single platform.`}</p>
 
-      <p className="thank-you">Thank you for choosing Shubham world as your go-to resource for generating salary slips, invoices, and business cards. We hope our tools make your business operations smoother and more enjoyable. If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
+      <p className="thank-you">{`Thank you for choosing Shubham world as your go-to resource for generating salary slips, invoices, and business cards. We hope our tools make your business operations smoother and more enjoyable. If you have any questions or need assistance, please don't hesitate to contact our support team.`}</p>
 
       <p className="get-started">Get started now and experience the ease and convenience of our salary slip generator, invoice generator, and business card maker. Happy generating and designing!</p>
 
-      <p className="signature">Sincerely,<br />Shubham Kaushik </p>
+      <p className="signature">Sincerely,<br/>Shubham Kaushik </p>
     </div>
 
    </>
