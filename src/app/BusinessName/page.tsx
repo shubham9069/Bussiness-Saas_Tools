@@ -11,7 +11,7 @@ interface RGBA{
   b:number,
   a:number
 }
-const page = () => {
+const Page = () => {
   const[name,setname] = useState("")
 
 
@@ -104,7 +104,7 @@ const page = () => {
     <ul className="dropdown-menu" style={{width:'100%',height:250,overflowY:'auto'}}>
       {fontFamilies?.map((a)=>{
 
-        return <li className='dropdown-item' style={{fontFamily:a}} onClick={()=>setFont(a)}>{a}</li>
+        return <li key={a} className='dropdown-item' style={{fontFamily:a}} onClick={()=>setFont(a)}>{a}</li>
       })}
       
   </ul>
@@ -138,7 +138,7 @@ const page = () => {
  <div className='d-flex flex-wrap' style={{gridGap:10,height:300,overflow:'auto'}}>
  {combinations?.map((a:any)=>{
 
-return  <div className='center-div card-container' style={{width:132,height:75.5,background:a?.background.includes('.') ? `url(/bg.jpg) no-repeat center `:a?.background, borderRadius:6,backgroundSize:'contain'}} onClick={()=>setbackground(a)} >
+return  <div key={a.color} className='center-div card-container' style={{width:132,height:75.5,background:a?.background.includes('.') ? `url(/bg.jpg) no-repeat center `:a?.background, borderRadius:6,backgroundSize:'contain'}} onClick={()=>setbackground(a)} >
      
 <div>
 <p style={{background:a?.color,
@@ -193,4 +193,4 @@ margin:0
   )
 }
 
-export default page
+export default Page

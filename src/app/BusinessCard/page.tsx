@@ -22,7 +22,7 @@ interface RGBA{
     b:number,
     a:number
 }
-const page = () => {
+const Page = () => {
     var arr:RGBA[] =[
         {r: 255, g: 0, b: 0, a: 1 },
         {r: 255, g: 127, b: 0, a: 1 },
@@ -92,9 +92,9 @@ const page = () => {
  
     <div className='d-flex align-items-center ' style={{gridGap:10,margin:'1rem 0'}}>
         <span>BACKGROUND :</span>
-    {arr?.map((a)=>{
+    {arr?.map((a,i)=>{
 
-        return  <div className={style.colorIcon}style={{background:`rgb(${a?.r},${a.g},${a.b},${a.a})`}} onClick={()=>setColor(a)}></div> 
+        return  <div key={i} className={style.colorIcon}style={{background:`rgb(${a?.r},${a.g},${a.b},${a.a})`}} onClick={()=>setColor(a)}></div> 
     })}
     <div className="dropdown">
     <div className={` ${style.colorIcon} center-div dropdown-toggle`} data-bs-toggle="dropdown" aria-expanded="false" style={{border:'1.5px solid #4f15d059'}} > <i className="bi bi-eyedropper" style={{color:'#4f15d0'}}></i></div> 
@@ -106,9 +106,9 @@ const page = () => {
     </div>
     <div className='d-flex align-items-center ' style={{gridGap:10,margin:'1rem 0'}}>
         <span>TEXT COLOR:</span>
-    {[{r:255,g:255,b:255,a:1},{r:0,g:0,b:0,a:1}]?.map((a)=>{
+    {[{r:255,g:255,b:255,a:1},{r:0,g:0,b:0,a:1}]?.map((a,i)=>{
 
-        return  <div className={style.colorIcon}style={{background:`rgb(${a?.r},${a.g},${a.b},${a.a})`}} onClick={()=>settextcolor(a)}></div> 
+        return  <div key={i} className={style.colorIcon}style={{background:`rgb(${a?.r},${a.g},${a.b},${a.a})`}} onClick={()=>settextcolor(a)}></div> 
     })}
     <div className="dropdown">
     <div className={` ${style.colorIcon} center-div dropdown-toggle`} data-bs-toggle="dropdown" aria-expanded="false" style={{border:'1.5px solid #4f15d059'}} > <i className="bi bi-eyedropper" style={{color:'#4f15d0'}}></i></div> 
@@ -132,4 +132,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
