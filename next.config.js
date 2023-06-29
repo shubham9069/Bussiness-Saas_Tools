@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   
     images: {
-        domains: ["localhost", "techshubham.website"],
+        domains: ["localhost", "techshubham.website","invoice-beige.vercel.app"],
       },
      
  
